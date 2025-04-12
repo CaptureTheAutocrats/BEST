@@ -78,16 +78,45 @@ Content-Type: application/json
 ```json
 [
     {
-        "product_id": "2",
+        "product_id": "3",
         "user_id": "13",
-        "name": "Android",
-        "description": "Google",
-        "price": "50.00",
-        "image_id": "https://image.made-in-china.com/202f0j00BdGimwkMGRbC/A18-5-Inch-Android-Smartphone-HD-Face-Global-Version-Mobile-Phone.webp",
-        "stock": "300",
+        "name": "Awesome Product",
+        "description": "This is a great product.",
+        "price": "49.99",
+        "image_path": "uploads/13/3/1744450314.png",
+        "stock": "10",
         "product_condition": "New",
-        "created_at": "2025-04-12 04:08:14",
-        "updated_at": "2025-04-12 04:08:14"
+        "created_at": "2025-04-12 15:31:54",
+        "updated_at": "2025-04-12 15:31:54"
     }
 ]
 ```
+
+### Upload a Product
+
+**Method:** POST  
+**Path:** `/api/add-products.php?`  
+
+**Headers:**
+```
+Content-Type: application/json
+Authorization: Bearer <your_session_token>
+```
+
+**Request Body (JSON):**
+```json
+{
+    "name": "Awesome Product",
+    "description": "This is a great product.",
+    "price": 49.99,
+    "product_condition": "New",
+    "stock": 10,
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhE..."
+}
+```
+
+**Responses:**
+- 201 - Successfully added the product
+- 401 - Invalid session token
+- 500 - Internal error
+
