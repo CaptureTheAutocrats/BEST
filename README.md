@@ -47,11 +47,11 @@ Students at BUBT face significant financial challenges, including rising tuition
 BEST redefines e-commerce for students by combining cutting-edge technology (IoT locks) with hyperlocal logistics. By slashing costs, speeding transactions, and simplifying processes, it offers a sustainable alternative to traditional platforms while aligning with SDGs.
 
 ## Team Members
-Md. Abu Horaira Ansary Tanvir
-Israt Jahan Ekra
-Md. Rakibul Hasan Bijoy
-Md. Touhidur Rohman
-Soad Mahmud
-
-
-
+| ID | Name | Role |
+|--|:--:|:--:|
+| 2234103412 | Md. Touhidur Rahman | Frontend Developer & Scrum Master |
+| 2234103132 | Md. Abu Horaira Ansary Tanvir | Backen Developer & Team Leader |
+| 2234103178 | Md. Rakibul Hasan Bijoy | Microcontroller R&D |
+| 2234103076 | Israt Jahan Ekra | Database Design and Andministration |
+| 2234103178 | Soad Mahmud | UI Designer |
+| 2234103110 | Md. Shazzad Hossain | Product & UX Developer |
