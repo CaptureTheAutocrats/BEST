@@ -35,10 +35,6 @@
 
         $get_products_sql = "SELECT * FROM Products LIMIT $limit OFFSET $offset";
         $query              = mysqli_query($conn, $get_products_sql);
-        if ( mysqli_num_rows($query) <= 0 ){
-            http_response_code(404);
-            return;
-        }
 
          // Fetch all products and store them in an array
         $products = [];
