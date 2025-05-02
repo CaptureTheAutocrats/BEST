@@ -71,7 +71,6 @@ Content-Type: application/json
 
 **Responses:**
 - 200 - Successfully got the products
-- 404 - No products available
 - 500 - Internal error
 
 **Response (200):**
