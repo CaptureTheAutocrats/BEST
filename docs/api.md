@@ -21,9 +21,16 @@ Content-Type: application/json
 ```
 
 **Responses:**
-- 201 - User registered successfully
+- 200 - User registered successfully
 - 409 - User already exists
 - 500 - Internal error
+
+**Response (200):**
+```json
+{
+    "token": "<your_access_token>"
+}
+```
 
 ---
 
