@@ -101,7 +101,7 @@ Content-Type: application/json
 ### Upload a Product
 
 **Method:** POST  
-**Path:** `/api/add-products.php?`  
+**Path:** `/api/add-product.php`  
 
 **Headers:**
 ```
