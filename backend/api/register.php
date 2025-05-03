@@ -6,9 +6,7 @@
     $method = $_SERVER['REQUEST_METHOD'];
     $input  = json_decode(file_get_contents("php://input"), true);
 
-
     switch ($method) {
-
         case 'POST':
             handleRegistration($conn, $input);
             break;
@@ -18,9 +16,7 @@
             break;
     }
 
-
     function handleRegistration($conn, $input){
-
         $name           = $input['name'];
         $email          = $input['email'];
         $password       = $input['password'];
@@ -29,19 +25,35 @@
 
         try {
             $register_sql = "INSERT INTO Users (name, email, password_hash, student_id) VALUES ('$name', '$email', '$password_hash', '$student_id')";
-            if (mysqli_query($conn, $register_sql)) {
-                http_response_code(201);
+            $query = mysqli_query($conn, $register_sql); // <-- fixed semicolon
+
+            if (!$query) {
+                http_response_code(500);
+                echo json_encode(['message' => 'User registration failed']);
+                return;
             }
 
+            $user_id = mysqli_insert_id($conn);
+
+            $token      = generateBearerToken();
+            $expires_at = date('Y-m-d H:i:s', strtotime('+7 days'));
+
+            $insert_session_token_sql = "INSERT INTO Sessions (session_id, user_id, expires_at) VALUES ('$token', '$user_id', '$expires_at')";
+            if ( !mysqli_query($conn, $insert_session_token_sql) ) {
+                http_response_code(500);
+                echo json_encode(['message' => 'Session creation failed']);
+                return;
+            }
+
+            http_response_code(200);
+            echo json_encode(['message'=>'Success', 'token' => $token]);
         } catch (mysqli_sql_exception $e) {
-            
             $error = $e->getMessage();
             if (strpos($error, 'Duplicate entry') !== false) {
-                http_response_code(409); // Conflict, email already exists
+                http_response_code(409);
             } else {
-                http_response_code(400); // Bad request, some other error occurred
+                http_response_code(400);
             }
         }
     }
-
 ?>
