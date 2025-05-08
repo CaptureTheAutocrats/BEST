@@ -84,8 +84,8 @@
             }
 
             $session                = mysqli_fetch_assoc($query);
-            $expires_at             = $session['expires_at'];
-            $today                  = date('Y-m-d H:i:s');
+            $expires_at             = (int) $session['expires_at'];
+            $today                  = (int) time();
             if ( $today > $expires_at ){
                 return null;
             }
