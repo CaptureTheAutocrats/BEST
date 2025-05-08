@@ -28,7 +28,8 @@ Content-Type: application/json
 **Response (200):**
 ```json
 {
-    "token": "<your_access_token>"
+  "token": <string: access_token>,
+  "tokenExpiresAt": <number: unix_timestamp>
 }
 ```
 
@@ -60,7 +61,8 @@ Content-Type: application/json
 **Response (200):**
 ```json
 {
-    "token": "<your_access_token>"
+  "token": <string: access_token>,
+  "tokenExpiresAt": <number: unix_timestamp>
 }
 ```
 
