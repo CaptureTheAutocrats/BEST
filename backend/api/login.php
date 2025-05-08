@@ -1,4 +1,5 @@
 <?php
+
     require_once 'db.php';
     header('Content-Type: application/json');
     header('Access-Control-Allow-Origin: *');
@@ -16,6 +17,8 @@
             echo json_encode(['message' => 'Invalid request method']);
             break;
     }
+
+
         
     function handleLogin($conn,$input) {
 
@@ -44,7 +47,7 @@
             }
 
             $token      = generateBearerToken();
-            $expires_at = date('Y-m-d H:i:s', strtotime('+7 days'));
+            $expires_at = strtotime('+7 days');
 
             $insert_session_token_sql = "INSERT INTO Sessions (session_id, user_id, expires_at) VALUES ('$token', '$user_id', '$expires_at')";
             if ( !mysqli_query($conn, $insert_session_token_sql) ) {
@@ -53,7 +56,7 @@
             }
 
             http_response_code(200);
-            echo json_encode(['message'=>'Success', 'token' => $token]);
+            echo json_encode(['message'=>'Success', 'token' => $token , 'tokenExpiresAt' => (int) $expires_at ]);
         } catch (mysqli_sql_exception $e) {
             http_response_code(500);
         }
