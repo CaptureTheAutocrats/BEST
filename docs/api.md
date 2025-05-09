@@ -120,7 +120,7 @@ Authorization: Bearer <your_session_token>
     "product_condition": "New",
     "stock": 10,
     "image": "iVBORw0KGgoAAAANSUhE...",
-    "image_ext": "png"
+    "image_ext": ".png"
 }
 ```
 
