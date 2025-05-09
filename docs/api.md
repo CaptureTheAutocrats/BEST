@@ -119,7 +119,8 @@ Authorization: Bearer <your_session_token>
     "price": 49.99,
     "product_condition": "New",
     "stock": 10,
-    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhE..."
+    "image": "iVBORw0KGgoAAAANSUhE...",
+    "image_ext": "png"
 }
 ```
 
