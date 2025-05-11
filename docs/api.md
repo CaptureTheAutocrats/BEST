@@ -296,7 +296,7 @@ Authorization: Bearer <your_session_token>
 ```
 Content-Type: application/json
 Authorization: Bearer <your_session_token>
-isasseller: <false/true>
+isasseller: false | true
 ```
 
 **Responses:**
