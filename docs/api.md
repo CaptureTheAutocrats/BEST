@@ -13,10 +13,10 @@ Content-Type: application/json
 **Request Body (JSON):**
 ```json
 {
-    "name": "string, required",
-    "email": "string, required, unique",
-    "password": "string, required, min 8 chars",
-    "student_id": "string, required, unique"
+    "name": <string>,
+    "email": <string, unique>,
+    "password": <string, min 8 chars>,
+    "student_id": <string, unique>
 }
 ```
 
@@ -29,7 +29,7 @@ Content-Type: application/json
 ```json
 {
   "token": <string: access_token>,
-  "tokenExpiresAt": <number: unix_timestamp>
+  "tokenExpiresAt": <int: unix_timestamp>
 }
 ```
 
@@ -48,8 +48,8 @@ Content-Type: application/json
 **Request Body (JSON):**
 ```json
 {
-    "email": "string, required, unique",
-    "password": "string, required, min 8 chars"
+    "email": <string, unique>,
+    "password": <string,  min 8 chars>
 }
 ```
 
@@ -76,6 +76,7 @@ Content-Type: application/json
 **Headers:**
 ```
 Content-Type: application/json
+Authorization: Bearer <string: your_session_token>
 ```
 
 **Responses:**
@@ -108,19 +109,19 @@ Content-Type: application/json
 **Headers:**
 ```
 Content-Type: application/json
-Authorization: Bearer <your_session_token>
+Authorization: Bearer <string: your_session_token>
 ```
 
 **Request Body (JSON):**
 ```json
 {
-    "name": "Awesome Product",
-    "description": "This is a great product.",
-    "price": 49.99,
-    "product_condition": "New",
-    "stock": 10,
-    "image": "iVBORw0KGgoAAAANSUhE...",
-    "image_ext": ".png"
+    "name": <string>,
+    "description": <string>,
+    "price": <int>,
+    "product_condition": <string>,
+    "stock": <int>,
+    "image": <string: iVBORw0KGgoAAAANSUhE...>,
+    "image_ext": <string: .png>
 }
 ```
 
@@ -137,7 +138,7 @@ Authorization: Bearer <your_session_token>
 **Headers:**
 ```
 Content-Type: application/json
-Authorization: Bearer <your_session_token>
+Authorization: Bearer <string: your_session_token>
 ```
 
 **Request Body (JSON):**
@@ -161,7 +162,7 @@ Authorization: Bearer <your_session_token>
 **Headers:**
 ```
 Content-Type: application/json
-Authorization: Bearer <your_session_token>
+Authorization: Bearer <string: your_session_token>
 ```
 
 **Responses:**
@@ -191,7 +192,7 @@ Authorization: Bearer <your_session_token>
 **Headers:**
 ```
 Content-Type: application/json
-Authorization: Bearer <your_session_token>
+Authorization: Bearer <string: your_session_token>
 ```
 
 **Request Body (JSON):**
@@ -214,7 +215,7 @@ Authorization: Bearer <your_session_token>
 **Headers:**
 ```
 Content-Type: application/json
-Authorization: Bearer <your_session_token>
+Authorization: Bearer <string: your_session_token>
 ```
 
 **Request Body (JSON):**
@@ -292,11 +293,17 @@ Authorization: Bearer <your_session_token>
 **Method:** GET  
 **Path:** `/api/orders.php`  
 
-**Headers:**
+**Headers: (View As Buyer)**
 ```
 Content-Type: application/json
-Authorization: Bearer <your_session_token>
-isasseller: false | true
+Authorization: Bearer <string: your_session_token>
+```
+
+**Headers: (View As Seller)**
+```
+Content-Type: application/json
+Authorization: Bearer <string: your_session_token>
+isasseller: <bool: true>
 ```
 
 **Responses:**
