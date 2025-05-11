@@ -239,11 +239,86 @@ Authorization: Bearer <your_session_token>
 ```json
 [
     {
-        "message": <int>,
+        "message": <string>,
         "quantity": <int>,
     }
 ]
 ```
 
+### Place orders with cart items
 
+**Method:** POST  
+**Path:** `/api/orders.php`  
 
+**Headers:**
+```
+Content-Type: application/json
+Authorization: Bearer <your_session_token>
+```
+
+**Request Body (JSON):**
+```json
+{}
+```
+
+**Responses:**
+- 201 - Orders created successfully
+- 401 - Invalid session token
+- 500 - Internal error
+- 501 - Some orders failed to be created
+  
+**Response (201):**
+```json
+[
+    {
+        "message": <string>,
+        "orders_created": <int>,
+    }
+]
+```
+**Response (501):**
+```json
+[
+    {
+        "message": <string>,
+        "orders_created": <int>,
+        "orders_failed": <int>
+    }
+]
+```
+
+### Fetch all orders
+
+**Method:** GET  
+**Path:** `/api/orders.php`  
+
+**Headers:**
+```
+Content-Type: application/json
+Authorization: Bearer <your_session_token>
+```
+
+**Responses:**
+- 201 - Successfully got the orders
+- 401 - Invalid session token
+- 500 - Internal error
+  
+**Response (201):**
+```json
+[
+    {
+        "order_id": <int>,
+        "buyer_id": <int>,
+        "seller_id": <int>,
+        "product_id": <int>,
+        "quantity": <int>,
+        "total_amount": <int>,
+        "status": <string>,
+        "box_id": <string>,
+        "pickup_code": <string>,
+        "created_at": <string>,
+        "updated_at": <string>,
+        "product": <Product Object>
+    }
+]
+```
