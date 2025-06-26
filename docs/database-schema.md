@@ -7,7 +7,7 @@
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id VARCHAR(50) UNIQUE,
-    email VARCHAR(255) UNIQUE NOT NULL,
+    phone_number VARCHAR(255) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     name VARCHAR(100) NOT NULL,
     balance DECIMAL(10, 2) DEFAULT 0.00,
